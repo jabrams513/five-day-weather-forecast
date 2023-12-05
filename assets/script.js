@@ -1,8 +1,7 @@
 // Variables for accessing openweather
-// "api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}";
+// "https://api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}";
 var APIkey = "10e92ba164bd768fc926ed1b3171b8e9";
 var city;
-var queryURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
 
 // Variables for HTML items
 var cityFormEl = $("#city-form");
@@ -25,6 +24,14 @@ function displayCity(event) {
 
     // Update the 'city' variable based on user input
     city = cityValue;
+
+    // Fetch API
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
+    fetch(queryURL).then((response) => {
+        return response.json()
+    }).then((data) => {
+        console.log(data)
+        });
 
     // Save the city to local storage
     storeCity(cityValue);
