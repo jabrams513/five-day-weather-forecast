@@ -65,6 +65,7 @@ function retrieveCities() {
     });
 }
 
+// FUNCTION FOR 5 DAY FORECAST
 // Event listener for save button click
 cityFormEl.on("click", ".btn", displayFiveDayForecast);
 
@@ -89,7 +90,7 @@ function displayFiveDayForecast(event) {
         for (var i = 1; i < data.list.length; i += 8) {
 
             var date = dayjs(data.list[i].dt_text).format("MMMM D");
-            var weatherIcon = data.list[i].weather[0].icon;
+            // var weatherIconEl = data.list[i].weather[0].icon;
             var temp = data.list[i].main.temp;
             var wind = data.list[i].wind.speed;
             var humidity = data.list[i].main.humidity;
@@ -101,15 +102,64 @@ function displayFiveDayForecast(event) {
             var humidityEl = $("<div>").text("Humidity: " + humidity + "%");
 
             var FiveDayEl = $(".five-day");
-            var containerEl = $("<div>");
-            containerEl.addClass("card")
+            var fiveDayContainerEl = $("<div>");
+            fiveDayContainerEl.addClass("card")
 
-            containerEl.append(dateEl);
-            containerEl.append(weatherIconEl);
-            containerEl.append(TempEl);
-            containerEl.append(windEl);
-            containerEl.append(humidityEl);
-            FiveDayEl.append(containerEl)
+            fiveDayContainerEl.append(dateEl);
+            // fiveDayContainerEl.append(weatherIconEl);
+            fiveDayContainerEl.append(TempEl);
+            fiveDayContainerEl.append(windEl);
+            fiveDayContainerEl.append(humidityEl);
+            FiveDayEl.append(fiveDayContainerEl)
         }
+    })
+}
+
+// FUNCTION FOR CURRENT WEATHER
+// Event listener for save button click
+cityFormEl.on("click", ".btn", displayCurrentWeather);
+
+// Function to display 5 day forecast
+function displayCurrentWeather(event) {
+    event.preventDefault();
+
+    // Get the city value
+    var cityValue = cityInputEl.val().trim();
+
+    // Update the 'city' variable based on user input
+    city = cityValue;
+
+    // Fetch API
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIkey;
+    fetch(queryURL).then((response) => {
+        return response.json()
+    }).then((data) => {
+        console.log(data);
+
+        //Because the raw data provides info every 3 hours, iterate with i+8 to get a 24 hour cycle. Also start with i=1 to forecast starting tomorrow 
+        var i = 0
+
+        var date = dayjs(data.list[i].dt_text).format("MMMM D");
+        // var weatherIconEl = data.list[i].weather[0].icon;
+        var temp = data.list[i].main.temp;
+        var wind = data.list[i].wind.speed;
+        var humidity = data.list[i].main.humidity;
+
+        var dateEl = $("<div>").text(date);
+        // var weatherIconEl = <img src="https://openweathermap.org/img/w/$" + icon + ".png" alt = "Icon" />;
+        var TempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
+        var windEl = $("<div>").text("Wind Speed: " + wind + " MPH");
+        var humidityEl = $("<div>").text("Humidity: " + humidity + "%");
+
+        var currentWeatherEl = $(".current-weather");
+        var currentWeatherContainerEl = $("<div>");
+        currentWeatherContainerEl.addClass("card")
+
+        currentWeatherContainerEl.append(dateEl);
+        // currentWeatherContainerEl.append(weatherIconEl);
+        currentWeatherContainerEl.append(TempEl);
+        currentWeatherContainerEl.append(windEl);
+        currentWeatherContainerEl.append(humidityEl);
+        currentWeatherEl.append(currentWeatherContainerEl)
     })
 }
