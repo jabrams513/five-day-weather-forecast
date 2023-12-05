@@ -39,7 +39,8 @@ function displayCity(event) {
     // Display the city in the search history
     var cityRecords = $("<div>").text(cityValue);
     searchHistoryEl.append(cityRecords);
-
+    // Make each item in the search history a button
+    cityRecords.addClass("btn-info");
     console.log(cityValue);
 }
 
