@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin: 20px 20px;
+}
+
+header {
+    text-align: center;
+    background: linear-gradient(to right, #ff8c00, #ff2d55);
+}
+
+.btn-primary:hover {
+    color: blue;
+    background-color: white;
+}
+
+.search-history {
+    margin: 5px 2px 2px 2px;
+    border-top: 3px dashed black;
+}
+
+.btn-secondary:hover {
+    color: gray;
+    background-color: white;
+}
+
+.btn-secondary {
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px 0px 5px 10px;
+    border: 3px solid black;
+}
+
+.card {
+    margin: 10px;
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 10px;
+    display: inline-flex;
+    color: white;
+    background-color: rgb(76, 0, 255);
+}

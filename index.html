@@ -11,15 +11,15 @@
     <title>Five Day Weather Forecast</title>
 </head>
 
-<body class="container mt-4">
+<body class="mt-4">
     <header>
         <h1>
-            Weather Dashboard
+            🌞 Weather Dashboard ⛈️
         </h1>
     </header>
 
-    <main>
-        <div>
+    <main class="row">
+        <div class="col-sm-3 col-md-4">
 
             <div>
                 <h3>Search for a City</h3>
@@ -29,27 +29,27 @@
                 </form>
             </div>
 
-            <div class="search-history ">
+            <div class="search-history">
                 <h3>Search History</h3>
             </div>
         </div>
 
-        <div>
+        <div class="col-sm-9 col-md-8">
             <div>
-                <h2>Current Weather</h2>
+                <div>
+                    <h2>Current Weather</h2>
+                </div>
+                <div class="current-weather"></div>
             </div>
-            <div class="current-weather"></div>
-                <h2 class= "daily-forecast">5 Day Forecast</h2>
+
+            <div>
+                <div>
+                    <h2>5 Day Forecast</h2>
+                </div>
+                <div class="five-day"></div>
             </div>
-            <div class="five-day"></div>
         </div>
-
-
     </main>
-
-    <footer id="footer">
-        <p></p>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.6"></script>

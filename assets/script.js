@@ -63,7 +63,7 @@ function retrieveCities() {
     storedCities.forEach(function (city) {
         var cityRecords = $("<div>").text(city);
         // Make each item in the search history a button
-        cityRecords.addClass("btn-info");
+        cityRecords.addClass("btn-secondary");
         searchHistoryEl.append(cityRecords);
     });
 }
@@ -92,12 +92,14 @@ function displayCurrentWeather(event) {
         //Because the raw data provides info every 3 hours, iterate with i+8 to get a 24 hour cycle. Also start with i=1 to forecast starting tomorrow 
         var i = 0
 
+        var location = data.city.name;
         var date = dayjs(data.list[i].dt_text).format("MMMM D");
         // var weatherIconEl = data.list[i].weather[0].icon;
         var temp = data.list[i].main.temp;
         var wind = data.list[i].wind.speed;
         var humidity = data.list[i].main.humidity;
 
+        var locationEl = $("<div>").text(location);
         var dateEl = $("<div>").text(date);
         // var weatherIconEl = <img src="https://openweathermap.org/img/w/$" + icon + ".png" alt = "Icon" />;
         var tempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
@@ -108,6 +110,7 @@ function displayCurrentWeather(event) {
         var currentWeatherContainerEl = $("<div>");
         currentWeatherContainerEl.addClass("card")
 
+        currentWeatherContainerEl.append(locationEl);
         currentWeatherContainerEl.append(dateEl);
         // currentWeatherContainerEl.append(weatherIconEl);
         currentWeatherContainerEl.append(tempEl);
