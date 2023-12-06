@@ -40,7 +40,7 @@ function displayCity(event) {
     var cityRecords = $("<div>").text(cityValue);
     searchHistoryEl.append(cityRecords);
     // Make each item in the search history a button
-    cityRecords.addClass("btn-info");
+    cityRecords.addClass("btn-secondary");
     console.log(cityValue);
 }
 
@@ -100,7 +100,7 @@ function displayCurrentWeather(event) {
 
         var dateEl = $("<div>").text(date);
         // var weatherIconEl = <img src="https://openweathermap.org/img/w/$" + icon + ".png" alt = "Icon" />;
-        var TempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
+        var tempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
         var windEl = $("<div>").text("Wind Speed: " + wind + " MPH");
         var humidityEl = $("<div>").text("Humidity: " + humidity + "%");
 
@@ -110,7 +110,7 @@ function displayCurrentWeather(event) {
 
         currentWeatherContainerEl.append(dateEl);
         // currentWeatherContainerEl.append(weatherIconEl);
-        currentWeatherContainerEl.append(TempEl);
+        currentWeatherContainerEl.append(tempEl);
         currentWeatherContainerEl.append(windEl);
         currentWeatherContainerEl.append(humidityEl);
         currentWeatherEl.append(currentWeatherContainerEl)
@@ -149,7 +149,7 @@ function displayFiveDayForecast(event) {
 
             var dateEl = $("<div>").text(date);
             // var weatherIconEl = <img src="https://openweathermap.org/img/w/$" + icon + ".png" alt = "Icon" />;
-            var TempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
+            var tempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
             var windEl = $("<div>").text("Wind Speed: " + wind + " MPH");
             var humidityEl = $("<div>").text("Humidity: " + humidity + "%");
 
@@ -159,7 +159,7 @@ function displayFiveDayForecast(event) {
 
             fiveDayContainerEl.append(dateEl);
             // fiveDayContainerEl.append(weatherIconEl);
-            fiveDayContainerEl.append(TempEl);
+            fiveDayContainerEl.append(tempEl);
             fiveDayContainerEl.append(windEl);
             fiveDayContainerEl.append(humidityEl);
             FiveDayEl.append(fiveDayContainerEl)

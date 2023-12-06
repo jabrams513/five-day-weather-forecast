@@ -11,37 +11,37 @@
     <title>Five Day Weather Forecast</title>
 </head>
 
-<body class="flex-column min-100-vh">
-    <header class="hero">
+<body class="container mt-4">
+    <header>
         <h1>
             Weather Dashboard
         </h1>
     </header>
 
-    <main class="row justify-content-center">
-        <div class="col-12 col-sm-12 col-md-4 float-left">
+    <main>
+        <div>
 
-            <div class="card">
-                <h3 class="card-header">Search for a City</h3>
-                <form class="card-body" id="city-form">
+            <div>
+                <h3>Search for a City</h3>
+                <form id="city-form">
                     <input type="text" id="city-input" placeholder="City Name..." />
                     <button class="btn btn-primary" id="search-btn">Search</button>
                 </form>
             </div>
 
-            <div class="card search-history ">
-                <h3 class="card-header">Search History</h3>
+            <div class="search-history ">
+                <h3>Search History</h3>
             </div>
         </div>
 
-        <div class="col-12 col-sm-12 col-md-8 float-right">
+        <div>
             <div>
-                <h2 class="card-header today">Current Weather</h2>
+                <h2>Current Weather</h2>
             </div>
-            <div class="card-body current-weather"></div>
-                <h2 class="card-header daily-forecast">5 Day Forecast</h2>
+            <div class="current-weather"></div>
+                <h2 class= "daily-forecast">5 Day Forecast</h2>
             </div>
-            <div class="card-body five-day"></div>
+            <div class="five-day"></div>
         </div>
 
 
