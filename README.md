@@ -5,7 +5,7 @@
 Build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS
 
 ## Deployed Webpage Link
-<!-- https://jabrams513.github.io/five-day-weather-forecast/ -->
+https://jabrams513.github.io/five-day-weather-forecast/
 
 ## User Story
 
@@ -37,7 +37,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Screenshot
 Please refer to the following screenshot as a reference for the web application's appearance and functionality:
-<!-- ![workday scheduler page](./Assets/pic1.png) -->
+![workday scheduler page](./Assets/pic1.png)
 
 ## Code Sources and Collaborators
 I had the opportunity to collaborate with my peers Kenny, Mykhailo, Ryan, Gelu, and Mustapha. We checked our work with one another.
