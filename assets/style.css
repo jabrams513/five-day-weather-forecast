@@ -45,6 +45,10 @@ header {
     background-color: rgb(76, 0, 255);
 }
 
+.current-weather-location, .date-text {
+    font-weight: bolder;
+}
+
 img {
     height: 50px;
     width: 50px;

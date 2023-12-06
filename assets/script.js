@@ -108,7 +108,10 @@ function displayCurrentWeather(event) {
 
         var currentWeatherEl = $(".current-weather");
         var currentWeatherContainerEl = $("<div>");
-        currentWeatherContainerEl.addClass("card")
+        currentWeatherContainerEl.addClass("card");
+
+        locationEl.addClass("current-weather-location");
+        dateEl.addClass("date-text");
 
         currentWeatherContainerEl.append(locationEl);
         currentWeatherContainerEl.append(dateEl);
@@ -158,7 +161,9 @@ function displayFiveDayForecast(event) {
 
             var FiveDayEl = $(".five-day");
             var fiveDayContainerEl = $("<div>");
-            fiveDayContainerEl.addClass("card")
+            fiveDayContainerEl.addClass("card");
+
+            dateEl.addClass("date-text");
 
             fiveDayContainerEl.append(dateEl);
             fiveDayContainerEl.append(weatherIconEl);
