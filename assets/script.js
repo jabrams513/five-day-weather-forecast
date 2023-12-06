@@ -93,15 +93,15 @@ function displayCurrentWeather(event) {
         var i = 0
 
         var location = data.city.name;
-        var date = dayjs(data.list[i].dt_text).format("MMMM D");
-        // var weatherIconEl = data.list[i].weather[0].icon;
+        var date = dayjs(data.list[i].dt_txt).format("MMMM D");
+        var icon = data.list[i].weather[0].icon;
         var temp = data.list[i].main.temp;
         var wind = data.list[i].wind.speed;
         var humidity = data.list[i].main.humidity;
 
         var locationEl = $("<div>").text(location);
         var dateEl = $("<div>").text(date);
-        // var weatherIconEl = <img src="https://openweathermap.org/img/w/$" + icon + ".png" alt = "Icon" />;
+        var weatherIconEl = $(`<img src="https://openweathermap.org/img/wn/${icon}.png" alt = "Icon" />`);
         var tempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
         var windEl = $("<div>").text("Wind Speed: " + wind + " MPH");
         var humidityEl = $("<div>").text("Humidity: " + humidity + "%");
@@ -112,7 +112,7 @@ function displayCurrentWeather(event) {
 
         currentWeatherContainerEl.append(locationEl);
         currentWeatherContainerEl.append(dateEl);
-        // currentWeatherContainerEl.append(weatherIconEl);
+        currentWeatherContainerEl.append(weatherIconEl);
         currentWeatherContainerEl.append(tempEl);
         currentWeatherContainerEl.append(windEl);
         currentWeatherContainerEl.append(humidityEl);
@@ -144,14 +144,14 @@ function displayFiveDayForecast(event) {
         //Because the raw data provides info every 3 hours, iterate with i+8 to get a 24 hour cycle. Also start with i=1 to forecast starting tomorrow 
         for (var i = 1; i < data.list.length; i += 8) {
 
-            var date = dayjs(data.list[i].dt_text).format("MMMM D");
-            // var weatherIconEl = data.list[i].weather[0].icon;
+            var date = dayjs(data.list[i].dt_txt).format("MMMM D");
+            var icon = data.list[i].weather[0].icon;
             var temp = data.list[i].main.temp;
             var wind = data.list[i].wind.speed;
             var humidity = data.list[i].main.humidity;
 
             var dateEl = $("<div>").text(date);
-            // var weatherIconEl = <img src="https://openweathermap.org/img/w/$" + icon + ".png" alt = "Icon" />;
+            var weatherIconEl = $(`<img src="https://openweathermap.org/img/wn/${icon}.png" alt = "Icon" />`);
             var tempEl = $("<div>").text("Temperature: " + Number.parseInt((temp - 273.15) * (9 / 5) + 32) + " °F");
             var windEl = $("<div>").text("Wind Speed: " + wind + " MPH");
             var humidityEl = $("<div>").text("Humidity: " + humidity + "%");
@@ -161,7 +161,7 @@ function displayFiveDayForecast(event) {
             fiveDayContainerEl.addClass("card")
 
             fiveDayContainerEl.append(dateEl);
-            // fiveDayContainerEl.append(weatherIconEl);
+            fiveDayContainerEl.append(weatherIconEl);
             fiveDayContainerEl.append(tempEl);
             fiveDayContainerEl.append(windEl);
             fiveDayContainerEl.append(humidityEl);
