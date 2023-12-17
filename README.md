@@ -37,7 +37,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Screenshot
 Please refer to the following screenshot as a reference for the web application's appearance and functionality:
-![workday scheduler page](./Assets/pic1.png)
+![workday scheduler page](./assets/pic1.png)
 
 ## Code Sources and Collaborators
 I had the opportunity to collaborate with my peers Kenny, Mykhailo, Ryan, Gelu, and Mustapha. We checked our work with one another.
